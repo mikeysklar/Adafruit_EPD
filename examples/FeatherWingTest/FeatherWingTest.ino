@@ -66,6 +66,9 @@ ThinkInk_213_Mono_BN display(EPD_DC, EPD_RESET, EPD_CS, SRAM_CS, EPD_BUSY);
 // Uncomment the following line if you are using 2.9" Tri-Color EPD with IL0373
 //ThinkInk_290_Tricolor_Z10 display(EPD_DC, EPD_RESET, EPD_CS, SRAM_CS, EPD_BUSY);
 
+// Uncomment the following line if you are using 2.9" Grayscale EPD with SSD1680
+//ThinkInk_290_Grayscale4_EAAMFGN display(EPD_DC, EPD_RESET, EPD_CS, SRAM_CS, EPD_BUSY);
+
 // Uncomment the following line if you are using 2.9" Grayscale EPD with IL0373
 //ThinkInk_290_Grayscale4_T5 display(EPD_DC, EPD_RESET, EPD_CS, SRAM_CS, EPD_BUSY);
 //#define FLEXIBLE_290
