@@ -214,12 +214,14 @@ void Adafruit_UC8279::powerUp() {
   }
   EPD_commandList(init_code);
 
-  // Write the OLD plane with white pixels first, then the NEW plane with the
-  // actual framebuffer
-  EPD_command(UC8279_WRITE_RAM1, false);
-  dcHigh();
-  writeBlankGates(_addressed_gates);
-  csHigh();
+  // Monochrome: write the OLD plane with white pixels first; the NEW plane
+  // gets the framebuffer. Grayscale4 streams real data into both planes.
+  if (buffer2_size == 0) {
+    EPD_command(UC8279_WRITE_RAM1, false);
+    dcHigh();
+    writeBlankGates(_addressed_gates);
+    csHigh();
+  }
 }
 
 /**************************************************************************/

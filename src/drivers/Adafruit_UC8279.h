@@ -15,6 +15,11 @@
 #define UC8279_WRITE_RAM1 0x10         ///< DTM1 — OLD plane in KW mode
 #define UC8279_DISPLAYREFRESH 0x12     ///< DRF
 #define UC8279_WRITE_RAM2 0x13         ///< DTM2 — NEW plane in KW mode
+#define UC8279_LUT_VCOM 0x20           ///< LUTC — VCOM waveform
+#define UC8279_LUT_WW 0x21             ///< LUTWW — white-to-white
+#define UC8279_LUT_BW 0x22             ///< LUTBW — black-to-white
+#define UC8279_LUT_WB 0x23             ///< LUTWB — white-to-black
+#define UC8279_LUT_BB 0x24             ///< LUTBB — black-to-black
 #define UC8279_PLL 0x30                ///< PLL frame rate
 #define UC8279_VCOM_DATA_INTERVAL 0x50 ///< CDI (1 data byte on this part)
 #define UC8279_TRES 0x61               ///< resolution
@@ -66,5 +71,9 @@ class Adafruit_UC8279 : public Adafruit_EPD {
   uint8_t _tsset = 0x1E;     ///< forced temperature, full refresh
   uint8_t _cdi = 0x97;       ///< VCOM/data interval, full refresh
 };
+
+// Included here (not from Adafruit_EPD.h) so the subclass always sees the
+// full Adafruit_UC8279 definition regardless of include order.
+#include "Adafruit_UC8279_Grayscale4.h"
 
 #endif
